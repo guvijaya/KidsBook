@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Setup Guide - Kids Essays Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1, h2 { color: #6b46c1; }
+        .step {
+            background: #f8fafc;
+            border-left: 4px solid #6b46c1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .code {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d1fae5;
+            border: 1px solid #10b981;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        ul { padding-left: 20px; }
+        li { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Azure Blob Storage Setup Guide</h1>
+        <p>Follow these steps to configure Azure Blob Storage for your Kids Essays Website.</p>
+
+        <div class="step">
+            <h2>Step 1: Create Azure Storage Account</h2>
+            <ul>
+                <li>Log into <a href="https://portal.azure.com" target="_blank">Azure Portal</a></li>
+                <li>Click "Create a resource" → "Storage account"</li>
+                <li>Choose your subscription and resource group</li>
+                <li>Enter a unique storage account name (remember this!)</li>
+                <li>Select your region</li>
+                <li>Choose "Standard" performance and "LRS" redundancy</li>
+                <li>Click "Review + Create" then "Create"</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Create Blob Container</h2>
+            <ul>
+                <li>Go to your new storage account</li>
+                <li>In the left menu, click "Containers"</li>
+                <li>Click "+ Container"</li>
+                <li>Name: <strong>essays</strong></li>
+                <li>Public access level: <strong>Blob (anonymous read access for blobs only)</strong></li>
+                <li>Click "Create"</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 3: Upload Sample Content</h2>
+            <p>Create this folder structure in your container:</p>
+            <div class="code">
+essays/
+├── en/
+│   ├── my-family.md
+│   ├── my-pet.md
+│   ├── school-day.md
+│   ├── favorite-food.md
+│   └── summer-vacation.md
+├── es/
+│   ├── mi-familia.md
+│   └── (other Spanish essays)
+└── (other language folders)
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>Step 4: Configure the Website</h2>
+            <p>Edit <code>js/azure-storage.js</code> and replace:</p>
+            <div class="code">
+this.storageAccountName = 'your-storage-account-name';
+            </div>
+            <p>with your actual storage account name:</p>
+            <div class="code">
+this.storageAccountName = 'mystorageaccount123';
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>Step 5: Test Your Setup</h2>
+            <ul>
+                <li>Open your website in a browser</li>
+                <li>Select a language</li>
+                <li>Click "Open Book"</li>
+                <li>If configured correctly, you should see your essays!</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ CORS Configuration</h3>
+            <p>If you encounter CORS errors, you may need to configure CORS settings in your storage account:</p>
+            <ul>
+                <li>Go to Storage Account → Settings → Resource sharing (CORS)</li>
+                <li>Add a new CORS rule for Blob service:</li>
+                <li><strong>Allowed origins:</strong> * (or your domain)</li>
+                <li><strong>Allowed methods:</strong> GET</li>
+                <li><strong>Allowed headers:</strong> *</li>
+                <li><strong>Max age:</strong> 86400</li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <h3>✅ Success!</h3>
+            <p>Once configured, your website will load essays from Azure Blob Storage. The sample content will be replaced with your actual markdown files.</p>
+        </div>
+
+        <h2>Sample Markdown File Structure</h2>
+        <p>Here's an example of how to structure your markdown files:</p>
+        <div class="code">
+# My Family
+
+My family is the most important thing in my life! 👨‍👩‍👧‍👦
+
+## Who's in My Family?
+
+I live with my **mom**, **dad**, and my little sister Sarah.
+
+### What We Love to Do Together
+
+- 🎮 Play board games on Sunday evenings
+- 🍳 Cook pancakes together on Saturday mornings  
+- 🚗 Take road trips during school holidays
+
+## Why I Love My Family
+
+My family always supports me and makes me laugh.
+
+*Family is where life begins and love never ends.* ❤️
+        </div>
+
+        <h2>Need Help?</h2>
+        <p>Check the console in your browser's developer tools for debugging information. The website will show sample content until Azure is properly configured.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "azure": {
+    "storageAccountName": "your-storage-account-name",
+    "containerName": "essays",
+    "publicAccess": true,
+    "cors": {
+      "enabled": true,
+      "allowedOrigins": ["*"],
+      "allowedMethods": ["GET"],
+      "allowedHeaders": ["*"]
+    }
+  },
+  "languages": {
+    "supported": ["en", "es", "fr", "de", "it", "pt"],
+    "default": "en"
+  },
+  "content": {
+    "essayStructure": {
+      "en": {
+        "folder": "en",
+        "essays": [
+          "my-family.md",
+          "my-pet.md", 
+          "school-day.md",
+          "favorite-food.md",
+          "summer-vacation.md"
+        ]
+      },
+      "es": {
+        "folder": "es",
+        "essays": [
+          "mi-familia.md",
+          "mi-mascota.md",
+          "dia-escuela.md", 
+          "comida-favorita.md",
+          "vacaciones-verano.md"
+        ]
+      },
+      "fr": {
+        "folder": "fr",
+        "essays": [
+          "ma-famille.md",
+          "mon-animal.md",
+          "journee-ecole.md",
+          "nourriture-preferee.md", 
+          "vacances-ete.md"
+        ]
+      },
+      "de": {
+        "folder": "de", 
+        "essays": [
+          "meine-familie.md",
+          "mein-haustier.md",
+          "schultag.md",
+          "lieblings-essen.md",
+          "sommer-ferien.md"
+        ]
+      },
+      "it": {
+        "folder": "it",
+        "essays": [
+          "la-mia-famiglia.md",
+          "il-mio-animale.md",
+          "giornata-scuola.md",
+          "cibo-preferito.md",
+          "vacanze-estive.md"
+        ]
+      },
+      "pt": {
+        "folder": "pt",
+        "essays": [
+          "minha-familia.md",
+          "meu-animal.md", 
+          "dia-escola.md",
+          "comida-favorita.md",
+          "ferias-verao.md"
+        ]
+      }
+    }
+  },
+  "setup": {
+    "instructions": [
+      "1. Create an Azure Storage Account",
+      "2. Create a container named 'essays'",
+      "3. Set container public access to 'Blob'",
+      "4. Upload markdown files in language-specific folders",
+      "5. Update storageAccountName in azure-storage.js",
+      "6. Test the application"
+    ]
+  }
+}

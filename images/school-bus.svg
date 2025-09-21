@@ -1,0 +1,8 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f3e5f5"/>
+  <rect x="50" y="100" width="300" height="120" fill="#9c27b0" rx="15"/>
+  <circle cx="80" cy="130" r="15" fill="#ffeb3b"/>
+  <circle cx="320" cy="130" r="15" fill="#ffeb3b"/>
+  <rect x="100" y="140" width="200" height="60" fill="#e1bee7" rx="10"/>
+  <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#333">School Bus</text>
+</svg>
